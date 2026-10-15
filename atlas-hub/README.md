@@ -5,7 +5,7 @@
     # Crie .env com VITE_API_URL=http://localhost:8080
     npm run dev
 
-A API é montada como `${VITE_API_URL}/atlashub` + caminho `/api/...`. `VITE_API_URL` contém apenas a origem do backend, sem `/atlashub`. Em desenvolvimento, o proxy do Vite encaminha `/atlashub` para essa URL (ou `http://localhost:8080` quando não estiver definida). Em produção, a origem padrão é `https://hub-operacional-atlas.onrender.com`; configure `VITE_API_URL` no ambiente de build apenas para sobrescrever esse padrão.
+A API é chamada pelo caminho `/atlashub` + `/api/...`. Em desenvolvimento, o proxy do Vite encaminha as chamadas para `VITE_API_URL` ou, por padrão, `http://localhost:8080`. Em produção, a Vercel encaminha `/atlashub/*` para `https://hub-operacional-atlas.onrender.com/atlashub/*`, evitando chamada cross-origin do navegador.
 
 ## Estado
 - Frontend integrado às rotas de login, cadastro, treinamentos, documentos e financeiro; validar os fluxos no ambiente publicado.
@@ -16,7 +16,7 @@ A API é montada como `${VITE_API_URL}/atlashub` + caminho `/api/...`. `VITE_API
 - Cadastro de movimentações financeiras usa `POST /api/admin/registrar/movimentacao/financeira` (requer cargo admin).
 - Exclusão financeira usa POST e remoção de documento usa GET (contrato atual, a ajustar no backend).
 - O progresso de treinamentos é carregado por `GET /atlashub/api/treinamento` e registrado por `POST /atlashub/api/treinamento`; ambos devem identificar o usuário autenticado via JWT.
-- Em produção, se o navegador bloquear as chamadas por CORS, o backend precisa liberar a origem pública do frontend.
+- O proxy de produção está definido em `vercel.json`; o frontend não chama o backend Render diretamente.
 
 O painel administrativo apresenta um gráfico de receitas e despesas pagas com base nas movimentações retornadas pela API financeira.
 

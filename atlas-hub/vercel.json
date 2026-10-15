@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/atlashub/:path*",
+      "destination": "https://hub-operacional-atlas.onrender.com/atlashub/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

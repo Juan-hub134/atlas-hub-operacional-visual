@@ -7,7 +7,12 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), tailwindcss()],
     server: {
-      proxy: { "/atlashub": env.VITE_API_URL || "http://localhost:8080" },
+      proxy: {
+        "/atlashub": {
+          target: env.VITE_API_URL || "http://localhost:8080",
+          changeOrigin: true,
+        },
+      },
     },
   };
 });
