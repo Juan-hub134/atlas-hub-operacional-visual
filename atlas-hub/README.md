@@ -5,7 +5,7 @@
     # Crie .env com VITE_API_URL=http://localhost:8080
     npm run dev
 
-A API é montada como `${VITE_API_URL}/atlashub` + caminho `/api/...`. `VITE_API_URL` contém apenas a origem do backend, sem `/atlashub`. Em desenvolvimento, o proxy do Vite encaminha `/atlashub` para essa URL (ou `http://localhost:8080` quando não estiver definida). Para produção, configure `VITE_API_URL` no ambiente de build do frontend com a URL pública HTTPS do backend; se frontend e API estiverem no mesmo domínio com proxy reverso, deixe-a vazia.
+A API é montada como `${VITE_API_URL}/atlashub` + caminho `/api/...`. `VITE_API_URL` contém apenas a origem do backend, sem `/atlashub`. Em desenvolvimento, o proxy do Vite encaminha `/atlashub` para essa URL (ou `http://localhost:8080` quando não estiver definida). Em produção, a origem padrão é `https://hub-operacional-atlas.onrender.com`; configure `VITE_API_URL` no ambiente de build apenas para sobrescrever esse padrão.
 
 ## Estado
 - Frontend integrado às rotas de login, cadastro, treinamentos, documentos e financeiro; validar os fluxos no ambiente publicado.
