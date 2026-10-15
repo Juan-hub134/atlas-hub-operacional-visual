@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), tailwindcss()],
     server: {
-      proxy: { "/api": env.VITE_API_URL || "http://localhost:8080" },
+      proxy: { "/atlashub": env.VITE_API_URL || "http://localhost:8080" },
     },
   };
 });
