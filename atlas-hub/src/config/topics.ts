@@ -92,7 +92,7 @@ export const TRACKS: Track[] = [
         { name: "Regras de cálculo", desc: "Documentar quais movimentações entram em receitas, despesas, saldo e pendências." },
         { name: "Consultas agregadas", desc: "Calcular totais com consultas SQL/JPA e tratar resultados vazios." },
         { name: "Pagos versus pendentes", desc: "Não misturar pendências com os totais pagos exibidos no gráfico." },
-        { name: "Compatibilidade de rotas", desc: "Conferir mappings, métodos HTTP e prefixo /atlashub esperados pelo front-end." },
+        { name: "Compatibilidade de rotas", desc: "Conferir mappings e métodos HTTP usados pelo front-end." },
         { name: "Integração ponta a ponta", desc: "Registrar pelo front-end e confirmar persistência e atualização da lista." },
         { name: "Conferência do dashboard", desc: "Comparar respostas da API com valores conhecidos, incluindo lista vazia." },
       ] },

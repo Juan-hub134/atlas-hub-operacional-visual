@@ -1,7 +1,7 @@
-// VITE_API_URL deve conter somente a origem do backend, sem /atlashub.
-// Em desenvolvimento, o proxy do Vite encaminha /atlashub para o backend.
+// VITE_API_URL deve conter somente a origem do backend, sem caminho adicional.
+// O Spring expõe os endpoints diretamente em /api.
 const apiOrigin = (import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "");
-export const API_ROOT = import.meta.env.DEV ? "/atlashub" : `${apiOrigin}/atlashub`;
+export const API_ROOT = import.meta.env.DEV ? "" : apiOrigin;
 
 // Todos os caminhos documentados ficam aqui. Nada de URL espalhada pelos componentes.
 export const ENDPOINTS = {
